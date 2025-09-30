@@ -1,4 +1,4 @@
-# Retrieve Sanger IDs and `library_type` per EGAF
+# Retrieve Sanger IDs and library type per EGAF
 
 The repository houses a simple Python script that queries EGA metadata for any given dataset (EGAD), getting a master list of its files (EGAF) and for each of those retrieving the matching sample (EGAN) and experiment (EGAX) information. It's necessary to perform this as for any given file, we need to find its Sanger ID (lives in EGAN metadata, seems to be `title`/`subject_id` in the current upload schema) and library type (lives in EGAX metadata as `library_construction_protocol`).
 
@@ -13,3 +13,13 @@ python3 parse_egad.py EGAD00001015679
 ```
 
 This created the aforementioned `parsed/EGAD00001015679.csv` file.
+
+A quick grep to find a Sanger ID in the collected CSVs, getting the EGAFs and library types:
+
+```bash
+$ grep "COV19_CH_214527346" parsed/*.csv | cut -f 1,11 -d "," | cut -f 2 -d ":"
+EGAF00008701867,Chromium single cell TCR
+EGAF00008701885,Chromium single cell TCR
+EGAF00008887639,Chromium single cell BCR
+EGAF00008887657,Chromium single cell BCR
+```
