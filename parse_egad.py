@@ -20,6 +20,8 @@ def retry_get(url, retries=5):
         except:
             #the get bricked, try again in a second
             time.sleep(1)
+    #we tried a few times and failed, shut it down
+    raise RuntimeError("Failed to get "+url)
 
 #get master list of EGAFs (files) for the dataset
 egafs = retry_get("https://metadata.ega-archive.org/datasets/"+egad+"/files")
