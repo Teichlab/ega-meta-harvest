@@ -17,7 +17,7 @@ This created the aforementioned `parsed/EGAD00001015679.csv` file.
 A quick grep to find a Sanger ID in the collected CSVs, getting the EGAFs and library types:
 
 ```bash
-$ grep "COV19_CH_214527346" parsed/*.csv | cut -f 1,11 -d "," | cut -f 2 -d ":"
+$ $ grep -h "COV19_CH_214527346" parsed/*.csv | cut -f 1,11 -d ","
 EGAF00008701867,Chromium single cell TCR
 EGAF00008701885,Chromium single cell TCR
 EGAF00008887639,Chromium single cell BCR
