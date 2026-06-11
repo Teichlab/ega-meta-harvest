@@ -14,7 +14,7 @@ python3 parse_egad.py EGAD00001015679
 
 This created the aforementioned `parsed/EGAD00001015679.csv` file.
 
-Due to the possible presence of commas in various EGA metadata fields, it's recommended to use [csvkit](https://csvkit.readthedocs.io/en/latest/) (easily gettable via `pip install csvkit`) to do quick searches of the CSV space for a particular Sanger ID. Let's find an example ID and its library types:
+Due to the possible presence of commas in various EGA metadata fields, it's recommended to use [csvkit](https://csvkit.readthedocs.io/en/latest/) (easily gettable via `pip install csvkit`) to do quick searches of the CSV space for a particular Sanger ID. Let's find our example ID and its library types:
 
 ```bash
 $ grep -h "COV19_CH_214527346" parsed/*.csv | csvcut -c 1,10
